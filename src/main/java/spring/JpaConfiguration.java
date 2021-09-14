@@ -49,7 +49,7 @@ public class JpaConfiguration {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:13306/mvc?zeroDateTimeBehavior=CONVERT_TO_NULL");
+        dataSource.setUrl("jdbc:mysql://localhost:13306/primefaces?zeroDateTimeBehavior=CONVERT_TO_NULL");
         dataSource.setUsername("root");
         dataSource.setPassword("root");
         

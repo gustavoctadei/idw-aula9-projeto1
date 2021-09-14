@@ -32,4 +32,14 @@ CREATE TABLE usuario_permissao (
     	REFERENCES permissao(id_permissao)
 );
 
+CREATE TABLE produto (
+	id_produto INT NOT NULL AUTO_INCREMENT,
+    quantidade INT NOT NULL,
+    nome VARCHAR(255) NOT NULL,
+    preco DOUBLE NOT NULL,
+    tipo VARCHAR(255),
+    
+    PRIMARY KEY (id_produto)
+);
+
 INSERT INTO permissao (descricao) VALUES ("ROLE_ADMINISTRADOR"), ("ROLE_USUARIO"), ("ROLE_USUARIO_VIP");
