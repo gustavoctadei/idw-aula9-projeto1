@@ -26,20 +26,28 @@
                     
                     <p:column filterBy="#{produto.preco}" sortBy="#{produto.preco}">
                         <f:facet name="header">Preço</f:facet>
-                        <h:outputText value="R$ #{produto.preco}">
+                        <h:outputText value="#{produto.preco}">
                             <f:convertNumber type="currency" minFractionDigits="2" maxFractionDigits="2" />
                         </h:outputText>
                     </p:column>
                     
-                    <p:column>
-                        <f:facet name="header">Ações</f:facet>
-                        
-                        <h:commandLink action="#{produtoBean.excluir()}" onclick="if (!confirm('Confirma a exclusão do produto #{produto.nome}?')) return false;">
-                            <f:ajax execute="@this" render=":listaProduto :editaProduto" />
-                            <h:graphicImage library="images" name="excluir16.png" />
-                            <f:setPropertyActionListener target="#{produtoBean.currentProduto}" value="#{produto}" />
-                        </h:commandLink>
-                    </p:column>
+                    <sec:authorize ifAnyGranted="ROLE_USUARIO_VIP">
+                        <p:column>
+                            <f:facet name="header">Ações</f:facet>
+
+                            <h:commandLink action="#{produtoBean.excluir()}" onclick="if (!confirm('Confirma a exclusão do produto #{produto.nome}?')) return false;">
+                                <f:ajax execute="@this" render=":listaProduto :editaProduto" />
+                                <h:graphicImage library="images" name="excluir16.png" />
+                                <f:setPropertyActionListener target="#{produtoBean.currentProduto}" value="#{produto}" />
+                            </h:commandLink>
+
+                            <h:commandLink>
+                                <f:ajax execute="@this" render=":editaProduto" />
+                                <h:graphicImage library="images" name="editar16.png" />
+                                <f:setPropertyActionListener target="#{produtoBean.currentProduto}" value="#{produto}" />
+                            </h:commandLink>
+                        </p:column>
+                    </sec:authorize>
                 </p:dataTable>
             </h:form>
             <br/>

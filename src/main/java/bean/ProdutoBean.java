@@ -40,9 +40,11 @@ public class ProdutoBean {
     
     public void salvar() {
         try {
+            Boolean novoProduto = currentProduto.getIdProduto() == null;
+            
             currentProduto = produtoDao.salvar(currentProduto);
             
-            listaProduto.add(currentProduto);
+            if (novoProduto) listaProduto.add(currentProduto);
             currentProduto = new Produto();
             
             FacesUtils.mensagem("Produto salvo com sucesso.", FacesMessage.SEVERITY_INFO);

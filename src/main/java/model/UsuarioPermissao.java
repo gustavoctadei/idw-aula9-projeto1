@@ -24,7 +24,7 @@ import org.springframework.security.core.GrantedAuthority;
  * @author Gustavo
  */
 @Entity
-@Table(name = "usuario_permissao", catalog = "mvc", schema = "")
+@Table(name = "usuario_permissao", catalog = "primefaces", schema = "")
 @NamedQueries({
     @NamedQuery(name = "UsuarioPermissao.findAll", query = "SELECT u FROM UsuarioPermissao u")})
 public class UsuarioPermissao implements GrantedAuthority, Serializable {

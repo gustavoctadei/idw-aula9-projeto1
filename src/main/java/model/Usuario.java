@@ -30,7 +30,7 @@ import org.springframework.security.core.userdetails.UserDetails;
  * @author Gustavo
  */
 @Entity
-@Table(name = "usuario", catalog = "mvc", schema = "", uniqueConstraints = {
+@Table(name = "usuario", catalog = "primefaces", schema = "", uniqueConstraints = {
     @UniqueConstraint(columnNames = {"login"})})
 @NamedQueries({
     @NamedQuery(name = "Usuario.findAll", query = "SELECT u FROM Usuario u")})
