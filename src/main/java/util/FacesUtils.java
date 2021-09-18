@@ -7,6 +7,7 @@ package util;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import org.primefaces.PrimeFaces;
 
 /**
  *
@@ -32,6 +33,14 @@ public class FacesUtils {
     
     public static void mensagem(String mensagem, FacesMessage.Severity severity) {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(severity, mensagem, null));
+    }
+    
+    public static void atualizaComponente(String componente) {
+        PrimeFaces.current().ajax().update(componente);
+    }
+    
+    public static void executaJavaScript(String script) {
+        PrimeFaces.current().executeScript(script);
     }
     
 }

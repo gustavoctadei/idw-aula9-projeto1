@@ -13,6 +13,10 @@
                         <td>
                             <p:menuButton value="Cadastrar">
                                 <p:menuitem value="Produto" action="/logado/produto" />
+                                
+                                <sec:authorize ifAnyGranted="ROLE_USUARIO_VIP">
+                                    <p:menuitem value="Fornecedor" action="/logado/fornecedor" />
+                                </sec:authorize>
                             </p:menuButton>
                         </td>
 
@@ -22,7 +26,7 @@
                                     <h:graphicImage library="images" name="administrativo16.png" />
                                 </h:commandLink>
                             </sec:authorize>
-
+                            
                             <h:commandLink action="/logado/principal" title="Principal">
                                 <h:graphicImage library="images" name="principal16.png" />
                             </h:commandLink>
